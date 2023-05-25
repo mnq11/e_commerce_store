@@ -7,24 +7,17 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Cafe Co.
         </p>
         <div className='text-sm text-stone-400'>
-          Developed by{' '}
+          Developed by{'Mohammed  '}
           <a
             className='text-sky-600'
-            href='https://hamedbahram.io/'
+            href='https://www.mohammedn.info/'
             rel='noreferrer'
             target='_blank'
           >
-            HB
+            Visit my website
           </a>{' '}
-          using{' '}
-          <a
-            className='text-sky-600'
-            href='https://www.swell.is/'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Swell
-          </a>
+
+
           .
         </div>
       </div>
