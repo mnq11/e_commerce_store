@@ -1,14 +1,12 @@
+// app/components/layout/header.tsx
 'use client'
 
 import { useState } from 'react'
-
 import Link from 'next/link'
 import useSWR from 'swr'
 import CartSlider from '@/components/cart-slider'
-
 import { getCart } from '@/lib/swell/cart'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
-
 import { SignInButton, UserButton } from '@clerk/nextjs'
 import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client'
 
@@ -20,20 +18,28 @@ const Header = () => {
     <>
       <header className='z-10 py-10 text-stone-400'>
         <nav className='container flex items-center justify-between'>
+
           {/* Logo */}
           <div>
-            <Link
-              href='/'
-              className='text-2xl font-bold uppercase tracking-widest'
-            >
-              CAFE
-            </Link>
+            <Link href='/' className='text-2xl font-bold uppercase tracking-widest'>CAFE</Link>
           </div>
 
           {/* Nav links */}
           <ul className='flex items-center gap-10'>
             <li className='text-sm font-medium uppercase tracking-wider'>
-              <Link href='/products'>Products</Link>
+              <Link href='/' className='cursor-pointer'>Home</Link>
+            </li>
+            <li className='text-sm font-medium uppercase tracking-wider'>
+              <Link href='/products' className='cursor-pointer'>Products</Link>
+            </li>
+            <li className='text-sm font-medium uppercase tracking-wider'>
+              <Link href='/about' className='cursor-pointer'>About</Link>
+            </li>
+            <li className='text-sm font-medium uppercase tracking-wider'>
+              <Link href='/services' className='cursor-pointer'>Services</Link>
+            </li>
+            <li className='text-sm font-medium uppercase tracking-wider'>
+              <Link href='/contact' className='cursor-pointer'>Contact</Link>
             </li>
             <SignedIn>
               <li className='text-sm font-medium uppercase tracking-wider'>
@@ -41,6 +47,7 @@ const Header = () => {
               </li>
             </SignedIn>
           </ul>
+
 
           {/* Shopping cart */}
           <div className='flex items-center justify-between gap-6'>

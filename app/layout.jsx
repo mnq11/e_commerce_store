@@ -1,5 +1,5 @@
+// Desc: Root layout for the app
 import { ClerkProvider } from '@clerk/nextjs/app-beta'
-
 import Footer from '@/components/layout/footer'
 import Header from '@/components/layout/header'
 import { Inter } from 'next/font/google'
@@ -11,23 +11,18 @@ const inter = Inter({
 
 export const metadata = {
   title: 'next ecommerce',
-  description: 'Created by Hamed Bahram'
+  description: 'Created by Mohammed Nabil'
 }
 
 const RootLayout = ({ children }) => {
   return (
-    <html
-      lang='en'
-      className={`${inter.className} h-full scroll-smooth antialiased`}
-    >
-      <body className='flex h-full flex-col text-stone-700'>
-        <ClerkProvider>
-          <Header />
-          <main className='grow'>{children}</main>
-          <Footer />
-        </ClerkProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <div className={`${inter.className} min-h-screen flex flex-col text-stone-700`}>
+        <Header />
+        <main className='flex-grow'>{children}</main>
+        <Footer />
+      </div>
+    </ClerkProvider>
   )
 }
 
