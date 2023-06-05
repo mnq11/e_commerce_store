@@ -11,24 +11,31 @@ import { ShoppingCartIcon } from '@heroicons/react/outline'
 
 import { SignInButton, UserButton } from '@clerk/nextjs'
 import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client'
-import Navigation from './Navigation'
+import NavigationMobile from './NavigationMobile'
+import NavigationDesktop from './NavigationDesktop'
 import Link from "next/link";
 
 const Header = () => {
   const { data: cart, isLoading } = useSWR('cart', getCart)
   const [cartSliderIsOpen, setCartSliderIsOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-
   return (
     <header className='fixed w-full z-10 py-6 bg-transparent'>
-      <nav className='container mx-auto max-w-screen-lg flex flex-col sm:flex-row items-center justify-between px-4 sm:px-0'>
+      <nav className='container mx-auto max-w-screen-lg flex flex-row items-center justify-between px-4 sm:px-0 relative'>
         {/* Logo */}
         <div className='flex-grow font-semibold text-xl sm:text-3xl text-gray-200'>
           <Link href='/'>CAFE</Link>
         </div>
 
-        {/* Nav links */}
-        <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
+        {/* Nav links for Desktop */}
+        <div className="hidden sm:block">
+          <NavigationDesktop />
+        </div>
+
+        {/* Nav links for Mobile */}
+        <div className="sm:hidden absolute top-full w-full right-0 ">
+          <NavigationMobile isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
 
         {/* Hamburger menu and Shopping cart */}
         <div className="flex items-center justify-end">
