@@ -65,7 +65,7 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
                       <div className='flex items-start justify-between'>
                         <Dialog.Title className='text-lg font-medium text-gray-900'>
                           {' '}
-                          Shopping cart{' '}
+                          Varukorg{' '}
                         </Dialog.Title>
                         <div className='ml-3 flex h-7 items-center'>
                           <button
@@ -73,7 +73,7 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
                             className='-m-2 p-2 text-gray-400 hover:text-gray-500'
                             onClick={() => setCartSliderIsOpen(false)}
                           >
-                            <span className='sr-only'>Close panel</span>
+                            <span className='sr-only'>Stäng panelen</span>
                             <XMarkIcon className='h-6 w-6' aria-hidden='true' />
                           </button>
                         </div>
@@ -120,7 +120,7 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
                                     </div>
                                     <div className='flex flex-1 items-end justify-between text-sm'>
                                       <p className='text-gray-500'>
-                                        Qty {item.quantity}
+                                        Antal {item.quantity}
                                       </p>
 
                                       <div className='flex'>
@@ -130,7 +130,7 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
                                           onClick={() => removeItem(item.id)}
                                           className='font-medium text-pink-600 hover:text-pink-500 disabled:cursor-not-allowed disabled:opacity-50'
                                         >
-                                          Remove
+                                          Ta bort
                                         </button>
                                       </div>
                                     </div>
@@ -144,13 +144,13 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
 
                     <div className='border-t border-gray-200 py-6 px-4 sm:px-6'>
                       <div className='flex justify-between text-base font-medium text-gray-900'>
-                        <p>Subtotal</p>
+                        <p>Delsumma</p>
                         <p>
                           {formatCurrency({ amount: cart?.sub_total || 0 })}
                         </p>
                       </div>
                       <p className='mt-0.5 text-sm text-gray-500'>
-                        Shipping and taxes calculated at checkout.
+                        Frakt och skatter beräknas vid utcheckning.
                       </p>
 
                       {cart?.checkout_url && (
@@ -160,7 +160,7 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
                               disabled={cartIsLoading}
                               className='flex h-12 w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-base font-medium text-gray-200 shadow-sm hover:bg-cyan-700 disabled:cursor-not-allowed disabled:opacity-75'
                             >
-                              {cartIsLoading ? <Blinker /> : 'Checkout'}
+                              {cartIsLoading ? <Blinker /> : 'Gå till kassan'}
                             </button>
                           </Link>
                         </div>
@@ -168,13 +168,13 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
 
                       <div className='mt-6 flex justify-center text-center text-sm text-gray-500'>
                         <p>
-                          or{' '}
+                          eller{' '}
                           <button
                             type='button'
                             className='font-medium text-cyan-600 hover:text-cyan-500'
                             onClick={() => setCartSliderIsOpen(false)}
                           >
-                            Continue Shopping
+                            Fortsätt handla
                             <span aria-hidden='true'> &rarr;</span>
                           </button>
                         </p>
