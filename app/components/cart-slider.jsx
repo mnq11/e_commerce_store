@@ -1,3 +1,4 @@
+// app/components/cart-slider.jsx
 'use client'
 
 import { Fragment, useState, useTransition } from 'react'
@@ -10,7 +11,7 @@ import { Blinker } from '@/components/ui/loading'
 import { formatCurrency } from '@/lib/utils'
 
 import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { XIcon as XMarkIcon } from '@heroicons/react/outline'
 import { removeFromCart } from '@/lib/swell/cart'
 import { useSWRConfig } from 'swr'
 

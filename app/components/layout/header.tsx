@@ -1,49 +1,35 @@
+// app/components/layout/Header.tsx
 'use client'
 
 import { useState } from 'react'
-
-import Link from 'next/link'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import useSWR from 'swr'
 import CartSlider from '@/components/cart-slider'
 
 import { getCart } from '@/lib/swell/cart'
-import { ShoppingCartIcon } from '@heroicons/react/24/outline'
+import { ShoppingCartIcon } from '@heroicons/react/outline'
 
 import { SignInButton, UserButton } from '@clerk/nextjs'
 import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta/client'
+import Navigation from './Navigation'
+import Link from "next/link";
 
 const Header = () => {
   const { data: cart, isLoading } = useSWR('cart', getCart)
   const [cartSliderIsOpen, setCartSliderIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-      <header className='z-10 py-10 text-stone-400'>
-        <nav className='container flex items-center justify-between'>
+      <header className='z-10 py-10 text-stone-400 relative'>
+        <nav className='container flex items-center justify-between px-4 sm:px-0'>
           {/* Logo */}
-          <div>
-            <Link
-              href='/'
-              className='text-2xl font-bold uppercase tracking-widest'
-            >
-              CAFE
-            </Link>
+          <div className='mx-auto font-bold text-3xl'>
+            <Link href='/'>CAFE</Link>
           </div>
 
-          {/* Nav links */}
-          <ul className='flex items-center gap-10'>
-            <li className='text-sm font-medium uppercase tracking-wider'>
-              <Link href='/products'>Products</Link>
-            </li>
-            <SignedIn>
-              <li className='text-sm font-medium uppercase tracking-wider'>
-                <Link href='/dashboard'>Dashboard</Link>
-              </li>
-            </SignedIn>
-          </ul>
-
-          {/* Shopping cart */}
-          <div className='flex items-center justify-between gap-6'>
+          {/* Hamburger menu */}
+          <div className="sm:hidden flex items-center justify-between">
             <button
               className='flex items-center gap-x-2 pl-4'
               onClick={() => setCartSliderIsOpen(open => !open)}
@@ -56,6 +42,21 @@ const Header = () => {
                 </span>
               ) : null}
             </button>
+            <button
+              type="button"
+              className="text-gray-500 hover:text-gray-600 transform transition-transform duration-500"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <XIcon className="h-6 w-6 rotate-180" /> : <MenuIcon className="h-6 w-6" />}
+            </button>
+          </div>
+
+          {/* Nav links */}
+          <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
+
+          {/* Shopping cart */}
+          <div className='hidden sm:flex items-center justify-end gap-6'>
             <SignedIn>
               <UserButton />
             </SignedIn>
@@ -66,6 +67,18 @@ const Header = () => {
                 </button>
               </SignInButton>
             </SignedOut>
+            <button
+              className='flex items-center gap-x-2 pl-4'
+              onClick={() => setCartSliderIsOpen(open => !open)}
+            >
+              <ShoppingCartIcon className='h-7 w-7' />
+
+              {cart?.item_quantity ? (
+                <span className='flex h-5 w-5 items-center justify-center rounded bg-sky-600 text-xs font-medium text-white'>
+                  {cart?.item_quantity}
+                </span>
+              ) : null}
+            </button>
           </div>
         </nav>
       </header>
