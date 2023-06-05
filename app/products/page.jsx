@@ -1,3 +1,4 @@
+// app/products/page.jsx
 import { getProducts } from '@/lib/swell/products'
 import Products from '@/components/products'
 

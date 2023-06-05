@@ -1,3 +1,4 @@
+// app/components/products.jsx
 import { formatCurrency } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -18,10 +19,12 @@ const Products = ({ products }) => {
               <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-stone-200 xl:aspect-w-7 xl:aspect-h-8'>
                 <Image
                   src={product.images[0].file.url}
-                  alt={product.description}
+                  alt={product.description || `Product ${product.name} image`}
                   fill
                   className='h-full w-full object-cover object-center transition-opacity group-hover:opacity-75'
                 />
+
+
               </div>
               <h3 className='mt-4 text-sm text-stone-700'>{product.name}</h3>
               <p className='mt-1 text-lg font-medium text-stone-900'>

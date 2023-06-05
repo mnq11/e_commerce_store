@@ -1,3 +1,4 @@
+// app/products/[slug]/page.jsx
 import { getProductBySlugOrId } from '@/lib/swell/products'
 import Product from '@/components/product'
 

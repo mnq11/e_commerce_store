@@ -1,3 +1,4 @@
+// app/components/product.jsx
 'use client'
 
 import { useState, useTransition } from 'react'
@@ -72,12 +73,14 @@ const Product = ({ product }) => {
                           {image?.file?.metadata}{' '}
                         </span>
                         <span className='absolute inset-0 overflow-hidden rounded-md'>
-                          <Image
-                            alt=''
-                            fill
-                            src={image?.file?.url}
-                            className='h-full w-full object-cover object-center'
-                          />
+                        <Image
+                          alt={`Product ${product.name} image`}
+                          fill
+                          src={image?.file?.url}
+                          className='h-full w-full object-cover object-center'
+                        />
+
+
                         </span>
                         <span
                           className={clsx(
@@ -99,9 +102,11 @@ const Product = ({ product }) => {
                   <Image
                     fill
                     src={image.file.url}
-                    alt={image.file.metadata || ''}
+                    alt={image.file.metadata || `Product ${product.name} image`}
                     className='h-full w-full object-cover object-center sm:rounded-lg'
                   />
+
+
                 </Tab.Panel>
               ))}
             </Tab.Panels>
