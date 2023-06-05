@@ -20,7 +20,7 @@ const Header = () => {
   const [cartSliderIsOpen, setCartSliderIsOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <header className='fixed w-full z-10 py-6 bg-transparent'>
+    <header className='sticky top-0 bg-transparent bg-opacity-10 backdrop-filter backdrop-blur-sm z-10 py-6'>
       <nav className='container mx-auto max-w-screen-lg flex flex-row items-center justify-between px-4 sm:px-0 relative'>
         {/* Logo */}
         <div className='flex-grow font-semibold text-xl sm:text-3xl text-gray-200'>

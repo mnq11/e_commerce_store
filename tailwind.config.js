@@ -37,7 +37,19 @@ module.exports = {
       },
       animation: {
         blink: 'blink 1.4s infinite both'
-      }
+      },
+      backdropFilter: {
+        'none': 'none',
+        'blur-sm': 'blur(10px)',
+        'blur-md': 'blur(15px)',
+        'blur-lg': 'blur(20px)',
+
+      },
+    }
+  },
+  variants: {
+    extend: {
+      backdropFilter: ['responsive'],
     }
   },
   plugins: [
