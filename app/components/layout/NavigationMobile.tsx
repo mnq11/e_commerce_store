@@ -14,17 +14,20 @@ const NavigationMobile = ({ isOpen, setIsOpen }) => {
   return (
     <ul className={`${isOpen ? 'flex flex-col items-end pr-3' : 'hidden'} bg-transparent max-w-full py-0 rounded-md transition-all duration-500 ease-in-out`}>
       <li className={`${navItemClass}`}>
-        <Link href='/products' onClick={toggleMenu}>Products</Link>
+        <Link href='#' onClick={toggleMenu}>Hem</Link>
       </li>
       <li className={`${navItemClass}`}>
-        <Link href='/about' onClick={toggleMenu}>About</Link>
+        <Link href='/about' onClick={toggleMenu}>Om Oss</Link>
       </li>
       <li className={`${navItemClass}`}>
-        <Link href='/contact' onClick={toggleMenu}>Contact</Link>
+        <Link href='/products' onClick={toggleMenu}>Produkter</Link>
+      </li>
+      <li className={`${navItemClass}`}>
+        <Link href='/contact' onClick={toggleMenu}>Kontakt</Link>
       </li>
       <SignedIn>
         <li className={`${navItemClass}`}>
-          <Link href='/dashboard' onClick={toggleMenu}>Dashboard</Link>
+          <Link href='/dashboard' onClick={toggleMenu}>Kontrollpanel</Link>
         </li>
       </SignedIn>
     </ul>

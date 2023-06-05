@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Page = () => {
   return (
-    <section className='h-full' dir='rtl'>
+    <section className='h-full' dir='ltr'>
       <div className='relative isolate h-full overflow-hidden pt-14'>
         <Image
           alt=''
@@ -20,32 +20,32 @@ const Page = () => {
         <div className='mx-auto max-w-2xl py-32 px-4 sm:py-48 md:px-6 lg:py-56 xl:px-8'>
           <div className='hidden sm:mb-8 sm:flex sm:justify-center'>
             <div className='relative rounded-full py-1 px-3 text-sm leading-6 text-stone-400 ring-1 ring-white/10 hover:ring-white/20'>
-              نعلن عن الجولة التالية من التمويل.{' '}
-              <Link href='#' className='font-semibold text-gray-200'>
+              Vi tillkännager nästa finansieringsrunda.{' '}
+              <Link href='/about' className='font-semibold text-gray-200'>
                 <span className='absolute inset-0' aria-hidden='true' />
-                اقرأ المزيد <span aria-hidden='true'>&larr;</span>
+                Läs mer <span aria-hidden='true'>&rarr;</span>
               </Link>
             </div>
           </div>
           <div className='text-center'>
             <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
-              قهوتنا محمصة بالحب.
+              Vårt kaffe rostas med kärlek.
             </h1>
             <p className='mt-6 text-lg leading-8 text-stone-300'>
-              نحن نقدم أفضل القهوة بأجود المكونات. نتأكد من توفير تجربة فريدة لعشاق القهوة.
+              Vi erbjuder det bästa kaffet med de finaste ingredienserna. Vi säkerställer att erbjuda en unik upplevelse för kaffeälskare.
             </p>
             <div className='mt-10 flex items-center justify-center gap-x-6'>
               <Link
                 href='/products'
                 className='rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-gray-200 shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400'
               >
-                تسوق المنتجات
+                Handla produkter
               </Link>
               <Link
                 href='/about'
                 className='text-sm font-semibold leading-6 text-white'
               >
-                تعلم المزيد <span aria-hidden='true'>&larr;</span>
+                Lär mer <span aria-hidden='true'>&rarr;</span>
               </Link>
             </div>
           </div>

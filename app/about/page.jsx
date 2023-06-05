@@ -1,4 +1,3 @@
-
 // app/about/page.jsx
 "use client";
 
@@ -14,10 +13,10 @@ const Page = () => {
 
 
   return (
-    <section className="h-full" dir="rtl">
+    <section className="h-full" dir="ltr">
       <div className="relative isolate h-full overflow-hidden pt-14">
         <Image
-          alt='About our company'
+          alt='Om vårt företag'
           src={heroImage}
           className='fixed inset-0 -z-10 h-full w-full object-cover'
         />
@@ -30,38 +29,38 @@ const Page = () => {
         <div className='mx-auto max-w-2xl py-32 px-4 sm:py-48 md:px-6 lg:py-56 xl:px-8'>
           <div className='text-center'>
             <h1 className='text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl'>
-              قهوتنا محمصة بالحب.
+              Vårt kaffe rostas med kärlek.
             </h1>
             <p className='mt-6 text-lg leading-8 text-stone-300'>
-              نحن نقدم أفضل القهوة بأجود المكونات. نتأكد من توفير تجربة فريدة لعشاق القهوة.
+              Vi erbjuder det bästa kaffet med de finaste ingredienserna. Vi ser till att erbjuda en unik upplevelse för kaffeälskare.
             </p>
           </div>
 
           <div className='mt-10 flex flex-col items-center justify-center gap-y-6'>
             <div className='text-center'>
               <h2 className='text-3xl font-bold tracking-tight text-white sm:text-5xl'>
-                Our Story
+                Vår Historia
               </h2>
               <p className='mt-6 text-lg leading-8 text-stone-300'>
-                { /* Add your story here */}
+                { /* Lägg till din historia här */}
               </p>
             </div>
 
             <div className='text-center'>
               <h2 className='text-3xl font-bold tracking-tight text-white sm:text-5xl'>
-                Our Team
+                Vårt Team
               </h2>
               <p className='mt-6 text-lg leading-8 text-stone-300'>
-                { /* Add information about your team here */}
+                { /* Lägg till information om ditt team här */}
               </p>
             </div>
 
             <div className='text-center'>
               <h2 className='text-3xl font-bold tracking-tight text-gray-200 sm:text-5xl'>
-                Our Mission
+                Vårt Uppdrag
               </h2>
               <p className='mt-6 text-lg leading-8 text-stone-300'>
-                { /* Add your mission statement here */}
+                { /* Lägg till ditt uppdragsförklaring här */}
               </p>
             </div>
           </div>

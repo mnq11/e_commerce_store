@@ -24,7 +24,7 @@ const Header = () => {
       <nav className='container mx-auto max-w-screen-lg flex flex-row items-center justify-between px-4 sm:px-0 relative'>
         {/* Logo */}
         <div className='flex-grow font-semibold text-xl sm:text-3xl text-gray-200'>
-          <Link href='/'>CAFE</Link>
+          <Link href='/'>KAFFE</Link>
         </div>
 
         {/* Nav links for Desktop */}
@@ -44,7 +44,7 @@ const Header = () => {
               type="button"
               className="text-gray-200 hover:text-blue-500 transform transition-transform duration-500"
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
+              aria-label="Toggle meny"
             >
               {isOpen ? <XIcon className="h-6 w-6 rotate-180" /> : <MenuIcon className="h-6 w-6" />}
             </button>
@@ -70,7 +70,7 @@ const Header = () => {
             <SignedOut>
               <SignInButton mode='modal'>
                 <button className='rounded border text-gray-200 border-gray-200 px-3 py-0.5'>
-                  Sign in
+                  Logga in
                 </button>
               </SignInButton>
             </SignedOut>

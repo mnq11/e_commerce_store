@@ -8,18 +8,21 @@ const NavigationDesktop = () => {
 
   return (
     <ul className='flex flex-row items-center'>
-      <li className={navItemClass}>
-        <Link href='/products'>Products</Link>
+      <li className={`${navItemClass}`}>
+        <Link href='#' >Hem</Link>
       </li>
       <li className={navItemClass}>
-        <Link href='/about'>About</Link>
+        <Link href='/about'>Om Oss</Link>
       </li>
       <li className={navItemClass}>
-        <Link href='/contact'>Contact</Link>
+        <Link href='/products'>Produkter</Link>
+      </li>
+      <li className={navItemClass}>
+        <Link href='/contact'>Kontakt</Link>
       </li>
       <SignedIn>
         <li className={navItemClass}>
-          <Link href='/dashboard'>Dashboard</Link>
+          <Link href='/dashboard'>Kontrollpanel</Link>
         </li>
       </SignedIn>
     </ul>
