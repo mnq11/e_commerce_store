@@ -21,7 +21,7 @@ const Page = () => {
           <div className='hidden sm:mb-8 sm:flex sm:justify-center'>
             <div className='relative rounded-full py-1 px-3 text-sm leading-6 text-stone-400 ring-1 ring-white/10 hover:ring-white/20'>
               نعلن عن الجولة التالية من التمويل.{' '}
-              <Link href='#' className='font-semibold text-white'>
+              <Link href='#' className='font-semibold text-gray-200'>
                 <span className='absolute inset-0' aria-hidden='true' />
                 اقرأ المزيد <span aria-hidden='true'>&larr;</span>
               </Link>
@@ -37,7 +37,7 @@ const Page = () => {
             <div className='mt-10 flex items-center justify-center gap-x-6'>
               <Link
                 href='/products'
-                className='rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400'
+                className='rounded-md bg-sky-600 px-3.5 py-2.5 text-sm font-semibold text-gray-200 shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400'
               >
                 تسوق المنتجات
               </Link>

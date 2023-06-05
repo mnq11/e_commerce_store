@@ -29,7 +29,7 @@ const Page = () => {
 
         <div className='mx-auto max-w-2xl py-32 px-4 sm:py-48 md:px-6 lg:py-56 xl:px-8'>
           <div className='text-center'>
-            <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
+            <h1 className='text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl'>
               قهوتنا محمصة بالحب.
             </h1>
             <p className='mt-6 text-lg leading-8 text-stone-300'>
@@ -57,7 +57,7 @@ const Page = () => {
             </div>
 
             <div className='text-center'>
-              <h2 className='text-3xl font-bold tracking-tight text-white sm:text-5xl'>
+              <h2 className='text-3xl font-bold tracking-tight text-gray-200 sm:text-5xl'>
                 Our Mission
               </h2>
               <p className='mt-6 text-lg leading-8 text-stone-300'>

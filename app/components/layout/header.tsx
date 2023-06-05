@@ -20,31 +20,22 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <>
-      <header className='z-10 py-10 text-stone-400 relative bg-transparent'>
-        <nav className='container mx-auto max-w-screen-lg flex items-center justify-between px-4 sm:px-0'>
-          {/* Logo */}
-          <div className='font-semibold text-xl sm:text-3xl'>
-            <Link href='/'>CAFE</Link>
-          </div>
+    <header className='fixed w-full z-10 py-6 bg-transparent'>
+      <nav className='container mx-auto max-w-screen-lg flex flex-col sm:flex-row items-center justify-between px-4 sm:px-0'>
+        {/* Logo */}
+        <div className='flex-grow font-semibold text-xl sm:text-3xl text-gray-200'>
+          <Link href='/'>CAFE</Link>
+        </div>
 
-          {/* Hamburger menu */}
-          <div className="sm:hidden flex items-center justify-between">
-            <button
-              className='flex items-center gap-x-2 pl-4'
-              onClick={() => setCartSliderIsOpen(open => !open)}
-            >
-              <ShoppingCartIcon className='h-7 w-7' />
+        {/* Nav links */}
+        <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
 
-              {cart?.item_quantity ? (
-                <span className='flex h-5 w-5 items-center justify-center rounded bg-sky-600 text-xs font-medium text-white'>
-                  {cart?.item_quantity}
-                </span>
-              ) : null}
-            </button>
+        {/* Hamburger menu and Shopping cart */}
+        <div className="flex items-center justify-end">
+          <div className="sm:hidden">
             <button
               type="button"
-              className="text-gray-500 hover:text-gray-600 transform transition-transform duration-500"
+              className="text-gray-200 hover:text-blue-500 transform transition-transform duration-500"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -52,43 +43,40 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Nav links */}
-          <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
+          <button
+            className='flex items-center gap-x-2 pl-4 text-white'
+            onClick={() => setCartSliderIsOpen(open => !open)}
+          >
+            <ShoppingCartIcon className='h-7 w-7' />
 
-          {/* Shopping cart */}
-          <div className='hidden sm:flex items-center justify-end gap-6'>
+            {cart?.item_quantity ? (
+              <span className='flex h-5 w-5 items-center justify-center rounded bg-sky-600 text-xs font-medium text-gray-200'>
+                {cart?.item_quantity}
+              </span>
+            ) : null}
+          </button>
+
+          <div className='hidden sm:flex items-center justify-end gap-6 ml-6'>
             <SignedIn>
               <UserButton />
             </SignedIn>
             <SignedOut>
               <SignInButton mode='modal'>
-                <button className='rounded border border-gray-400 px-3 py-0.5'>
+                <button className='rounded border text-gray-200 border-gray-200 px-3 py-0.5'>
                   Sign in
                 </button>
               </SignInButton>
             </SignedOut>
-            <button
-              className='flex items-center gap-x-2 pl-4'
-              onClick={() => setCartSliderIsOpen(open => !open)}
-            >
-              <ShoppingCartIcon className='h-7 w-7' />
-
-              {cart?.item_quantity ? (
-                <span className='flex h-5 w-5 items-center justify-center rounded bg-sky-600 text-xs font-medium text-white'>
-                  {cart?.item_quantity}
-                </span>
-              ) : null}
-            </button>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
       <CartSlider
         cart={cart}
         cartIsLoading={isLoading}
         open={cartSliderIsOpen}
         setCartSliderIsOpen={setCartSliderIsOpen}
       />
-    </>
+    </header>
   )
 }
 

@@ -158,7 +158,7 @@ const CartSlider = ({ cart, cartIsLoading, open, setCartSliderIsOpen }) => {
                           <Link href={cart.checkout_url}>
                             <button
                               disabled={cartIsLoading}
-                              className='flex h-12 w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-cyan-700 disabled:cursor-not-allowed disabled:opacity-75'
+                              className='flex h-12 w-full items-center justify-center rounded-md border border-transparent bg-cyan-600 px-6 py-3 text-base font-medium text-gray-200 shadow-sm hover:bg-cyan-700 disabled:cursor-not-allowed disabled:opacity-75'
                             >
                               {cartIsLoading ? <Blinker /> : 'Checkout'}
                             </button>

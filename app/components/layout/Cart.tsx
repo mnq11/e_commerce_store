@@ -17,7 +17,7 @@ const Cart = () => {
         <ShoppingCartIcon className='h-7 w-7' />
 
         {cart?.item_quantity ? (
-          <span className='flex h-5 w-5 items-center justify-center rounded bg-sky-600 text-xs font-medium text-white'>
+          <span className='flex h-5 w-5 items-center justify-center rounded bg-sky-600 text-xs font-medium text-gray-200'>
             {cart?.item_quantity}
           </span>
         ) : null}

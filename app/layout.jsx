@@ -1,3 +1,5 @@
+// app/layout.jsx
+
 import { ClerkProvider } from '@clerk/nextjs/app-beta'
 
 import Footer from '@/components/layout/footer'
@@ -11,7 +13,7 @@ const inter = Inter({
 
 export const metadata = {
   title: 'next ecommerce',
-  description: 'Created by Hamed Bahram'
+  description: 'Created by Mohammed Nabil'
 }
 
 const RootLayout = ({ children }) => {
