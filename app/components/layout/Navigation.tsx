@@ -14,7 +14,7 @@ const Navigation = ({ isOpen, setIsOpen }) => {
     <ul className={`z-0 absolute top-full right-0 mt-0 transform origin-top-right sm:mt-0 sm:transform-none sm:relative sm:flex bg-transparent sm:bg-transparent shadow-md sm:shadow-none max-w-full sm:w-auto py-0 rounded-md sm:rounded-none sm:py-0 sm:gap-0 
                   transition duration-500 ease-in-out transform ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}
     >
-      <li className={navItemClass}>
+      <li className={navItemClass + ' bg-transparent'}>
         <Link href='/products'>
           <span onClick={toggleMenu}>Products</span>
         </Link>

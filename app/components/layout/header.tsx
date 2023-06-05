@@ -21,10 +21,10 @@ const Header = () => {
 
   return (
     <>
-      <header className='z-10 py-10 text-stone-400 relative'>
-        <nav className='container flex items-center justify-between px-4 sm:px-0'>
+      <header className='z-10 py-10 text-stone-400 relative bg-transparent'>
+        <nav className='container mx-auto max-w-screen-lg flex items-center justify-between px-4 sm:px-0'>
           {/* Logo */}
-          <div className='mx-auto font-bold text-3xl'>
+          <div className='font-semibold text-xl sm:text-3xl'>
             <Link href='/'>CAFE</Link>
           </div>
 

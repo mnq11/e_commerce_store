@@ -20,10 +20,10 @@ const RootLayout = ({ children }) => {
       lang='en'
       className={`${inter.className} h-full scroll-smooth antialiased`}
     >
-      <body className='flex h-full flex-col text-stone-700'>
+    <body className='flex h-full flex-col text-stone-700 bg-transparent px-4 sm:px-8 lg:px-16'>
         <ClerkProvider>
           <Header />
-          <main className='grow'>{children}</main>
+          <main className='grow bg-transparent'>{children}</main>
           <Footer />
         </ClerkProvider>
       </body>
