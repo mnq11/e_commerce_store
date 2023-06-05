@@ -16,7 +16,7 @@ const Page = () => {
 
 
   return (
-    <section className="h-full" dir="rtl">
+    <section className="h-full" dir="ltr">
       <div className="relative isolate h-full overflow-hidden pt-14">
         <div className='relative isolate h-full overflow-hidden pt-14'>
           <Image
