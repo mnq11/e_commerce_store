@@ -4,7 +4,6 @@
 import { useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
-import Link from "next/link";
 import heroImage from "@/public/images/about.jpg";
 
 const Page = () => {
@@ -18,11 +17,19 @@ const Page = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Submit the form data to your server or API
-    console.log(formData);
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    console.log(data);
   };
+
 
   const handleTextAreaResize = (e) => {
     e.target.style.height = 'inherit';
