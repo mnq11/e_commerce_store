@@ -17,13 +17,11 @@ const Page = () => {
   });
 
   const handleChange = (e) => {
-    console.log("Form field changed:", e.target.name, e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data before submit:", formData);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -36,19 +34,16 @@ const Page = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log("Response from server:", data);
       toast.success("Email sent successfully!", { position: toast.POSITION.BOTTOM_RIGHT });
       // Clear form fields
       setFormData({ name: "", email: "", phone: "", message: "" });
       formRef.current.reset();
     } catch (error) {
-      console.log("Error:", error);
       toast.error("Error sending email.", { position: toast.POSITION.BOTTOM_RIGHT });
     }
   };
 
   const handleTextAreaResize = (e) => {
-    console.log("Resizing textarea:", e.target.scrollHeight);
     e.target.style.height = "inherit";
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
