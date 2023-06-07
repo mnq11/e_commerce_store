@@ -1,11 +1,11 @@
 // app/api/contact/route.js
-
-import nodemailer from 'nodemailer';
 import { NextResponse } from 'next/server';
 
-export async function POST(req) {
-  const { name, email, phone, message } = req.body;
+import nodemailer from 'nodemailer';
 
+export async function POST(req) {
+  const body = await req.text();
+  const { name, email, phone, message } = JSON.parse(body);
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -13,6 +13,8 @@ export async function POST(req) {
       pass: process.env.GMAIL_APP_PASSWORD,
     },
   });
+
+  console.log('Transporter created:', transporter);
 
   let mailOptions = {
     from: process.env.GMAIL_USER,
@@ -26,11 +28,14 @@ export async function POST(req) {
     `,
   };
 
+  console.log('Mail options:', mailOptions);
+
   try {
-    await transporter.sendMail(mailOptions);
+    let info = await transporter.sendMail(mailOptions);
+    console.log('Email sent:', info);
     return NextResponse.json({ message: 'Email sent successfully.' });
   } catch (error) {
-    console.log(error);
+    console.log('Error sending email:', error);
     return NextResponse.json({ message: 'Error sending email.' });
   }
 }

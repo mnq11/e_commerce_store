@@ -14,11 +14,13 @@ const Page = () => {
   });
 
   const handleChange = (e) => {
+    console.log('Form field changed:', e.target.name, e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form data before submit:', formData);
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -27,14 +29,15 @@ const Page = () => {
       body: JSON.stringify(formData),
     });
     const data = await response.json();
-    console.log(data);
+    console.log('Response from server:', data);
   };
 
-
   const handleTextAreaResize = (e) => {
+    console.log('Resizing textarea:', e.target.scrollHeight);
     e.target.style.height = 'inherit';
     e.target.style.height = `${e.target.scrollHeight}px`;
   }
+
 
   return (
     <section className="h-full pt-14" dir="ltr">
