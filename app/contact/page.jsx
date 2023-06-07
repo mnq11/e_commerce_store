@@ -39,7 +39,7 @@ const Page = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      toast.success("E-post skickad framgångsrikt!", { position: toast.POSITION.BOTTOM_RIGHT });
+      toast.success("Meddelande skickad framgångsrikt!", { position: toast.POSITION.BOTTOM_RIGHT });
       // Clear form fields
       setFormData({ name: "", email: "", phone: "", message: "" });
       formRef.current.reset();
@@ -54,9 +54,16 @@ const Page = () => {
     e.target.style.height = "inherit";
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
+// app/contact/page.jsx
+// ...
+
   const validateForm = () => {
     if (formData.name.trim() === '') {
       toast.error('Namn krävs.', { position: toast.POSITION.BOTTOM_RIGHT });
+      return false;
+    }
+    if (formData.name.trim().length < 3) {
+      toast.error('Namnet måste vara minst 3 tecken.', { position: toast.POSITION.BOTTOM_RIGHT });
       return false;
     }
     if (formData.email.trim() === '' || !/\S+@\S+\.\S+/.test(formData.email)) {
@@ -67,12 +74,21 @@ const Page = () => {
       toast.error('Telefonnummer krävs.', { position: toast.POSITION.BOTTOM_RIGHT });
       return false;
     }
+    if (!/^[\d\s-]+$/.test(formData.phone)) {
+      toast.error('Ogiltigt telefonnummer. Använd endast siffror, mellanslag och bindestreck.', { position: toast.POSITION.BOTTOM_RIGHT });
+      return false;
+    }
     if (formData.message.trim() === '') {
       toast.error('Meddelande krävs.', { position: toast.POSITION.BOTTOM_RIGHT });
       return false;
     }
+    if (formData.message.trim().length < 10) {
+      toast.error('Meddelandet måste vara minst 10 tecken.', { position: toast.POSITION.BOTTOM_RIGHT });
+      return false;
+    }
     return true;
   };
+
 
 
   return (

@@ -1,6 +1,5 @@
 // app/api/contact/route.js
 import { NextResponse } from 'next/server';
-
 import nodemailer from 'nodemailer';
 
 export async function POST(req) {
@@ -14,19 +13,22 @@ export async function POST(req) {
     },
   });
 
-
   let mailOptions = {
     from: process.env.GMAIL_USER,
     to: process.env.GMAIL_USER,
     subject: `New message from ${name}`,
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Phone: ${phone}
-      Message: ${message}
+    html: `
+      <div style="font-family: Arial, sans-serif; padding: 20px; color: #444;">
+        <h1 style="font-size: 22px; color: #444;">📧 New Message</h1>
+        <p style="font-size: 18px; line-height: 24px;">
+          <strong>Name:</strong> ${name}<br>
+          <strong>Email:</strong> ${email}<br>
+          <strong>Phone:</strong> ${phone}<br>
+          <strong>Message:</strong> ${message}<br>
+        </p>
+      </div>
     `,
   };
-
 
   try {
     let info = await transporter.sendMail(mailOptions);
