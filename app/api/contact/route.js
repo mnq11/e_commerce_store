@@ -14,7 +14,6 @@ export async function POST(req) {
     },
   });
 
-  console.log('Transporter created:', transporter);
 
   let mailOptions = {
     from: process.env.GMAIL_USER,
@@ -28,14 +27,11 @@ export async function POST(req) {
     `,
   };
 
-  console.log('Mail options:', mailOptions);
 
   try {
     let info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info);
     return NextResponse.json({ message: 'Email sent successfully.' });
   } catch (error) {
-    console.log('Error sending email:', error);
     return NextResponse.json({ message: 'Error sending email.' });
   }
 }
