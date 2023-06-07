@@ -11,6 +11,7 @@ import heroImage from "@/public/images/about.jpg";
 const Page = () => {
   const { isLoaded, isSignedIn } = useUser();
   const formRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "", message: ""
@@ -22,6 +23,10 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+    setIsSubmitting(true);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -34,12 +39,14 @@ const Page = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      toast.success("Email sent successfully!", { position: toast.POSITION.BOTTOM_RIGHT });
+      toast.success("E-post skickad framgångsrikt!", { position: toast.POSITION.BOTTOM_RIGHT });
       // Clear form fields
       setFormData({ name: "", email: "", phone: "", message: "" });
       formRef.current.reset();
     } catch (error) {
-      toast.error("Error sending email.", { position: toast.POSITION.BOTTOM_RIGHT });
+      toast.error(`Fel vid skickande av e-post. ${error.message}`, { position: toast.POSITION.BOTTOM_RIGHT });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -47,6 +54,27 @@ const Page = () => {
     e.target.style.height = "inherit";
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
+  const validateForm = () => {
+    if (formData.name.trim() === '') {
+      toast.error('Namn krävs.', { position: toast.POSITION.BOTTOM_RIGHT });
+      return false;
+    }
+    if (formData.email.trim() === '' || !/\S+@\S+\.\S+/.test(formData.email)) {
+      toast.error('En giltig e-postadress krävs.', { position: toast.POSITION.BOTTOM_RIGHT });
+      return false;
+    }
+    if (formData.phone.trim() === '') {
+      toast.error('Telefonnummer krävs.', { position: toast.POSITION.BOTTOM_RIGHT });
+      return false;
+    }
+    if (formData.message.trim() === '') {
+      toast.error('Meddelande krävs.', { position: toast.POSITION.BOTTOM_RIGHT });
+      return false;
+    }
+    return true;
+  };
+
+
   return (
     <>
       <ToastContainer />
@@ -76,7 +104,7 @@ const Page = () => {
                            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
                   </div>
                   <div className="mb-4 text-gray-200">
-                    <label htmlFor="email" className="block mb-2"> Email</label>
+                    <label htmlFor="email" className="block mb-2"> E-post</label>
                     <input type="email" id="email" name="email" onChange={handleChange}
                            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
                   </div>
@@ -95,8 +123,9 @@ const Page = () => {
                               style={{ overflow: "hidden", overflowWrap: "break-word", resize: "none" }} />
                   </div>
                   <div className="flex justify-center">
-                    <button type="submit"
-                            className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Skicka
+                    <button type="submit" disabled={isSubmitting}
+                            className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                      {isSubmitting ? "Skickar..." : "Skicka"}
                     </button>
                   </div>
                 </form>
@@ -107,7 +136,7 @@ const Page = () => {
           <div className="text-center text-gray-200">
             <h2 className="text-xl mb-3">Vår kontaktinformation</h2>
             <p>
-              <strong>Email:</strong> info@example.com<br />
+              <strong>E-post:</strong> info@example.com<br />
               <strong>Telefon:</strong> +1 (123) 456-7890
             </p>
           </div>
