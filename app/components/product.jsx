@@ -64,7 +64,7 @@ const Product = ({ product }) => {
                 {product.images.map(image => (
                   <Tab
                     key={image.id}
-                    className='relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-stone-900 hover:bg-stone-50 focus:outline-none'
+                    className='relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-stone-200 hover:bg-stone-50 focus:outline-none'
                   >
                     {({ selected }) => (
                       <>
@@ -114,13 +114,13 @@ const Product = ({ product }) => {
 
           {/* Product info */}
           <div className='mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0'>
-            <h1 className='text-3xl font-bold tracking-tight text-stone-900'>
+            <h1 className='text-3xl font-bold tracking-tight text-stone-200'>
               {product.name}
             </h1>
 
             <div className='mt-3'>
               <h2 className='sr-only'>Product information</h2>
-              <p className='text-3xl tracking-tight text-stone-900'>
+              <p className='text-3xl tracking-tight text-stone-200'>
                 {formatCurrency({ amount: product.price })}
               </p>
             </div>
@@ -151,7 +151,7 @@ const Product = ({ product }) => {
               <h3 className='sr-only'>Description</h3>
 
               <div
-                className='space-y-6 text-base text-stone-700'
+                className='space-y-6 text-base text-stone-200'
                 dangerouslySetInnerHTML={{ __html: product.description }}
               />
             </div>
@@ -168,12 +168,12 @@ const Product = ({ product }) => {
               </div>
             </form>
 
-            <section aria-labelledby='details-heading' className='mt-12'>
+            <section aria-labelledby='details-heading' className='mt-12 text-gray-200'>
               <h2 id='details-heading' className='sr-only'>
                 Additional details
               </h2>
 
-              <div className='divide-y divide-stone-200 border-t'>
+              <div className='divide-y divide-stone-200 border-t text-gray-200'>
                 {details?.map(detail => (
                   <Disclosure as='div' key={detail.name}>
                     {({ open }) => (
@@ -182,7 +182,7 @@ const Product = ({ product }) => {
                           <Disclosure.Button className='group relative flex w-full items-center justify-between py-6 text-left'>
                             <span
                               className={clsx(
-                                open ? 'text-sky-600' : 'text-stone-900',
+                                open ? 'text-sky-600' : 'text-stone-200',
                                 'text-sm font-medium'
                               )}
                             >
@@ -205,7 +205,7 @@ const Product = ({ product }) => {
                         </h3>
                         <Disclosure.Panel
                           as='div'
-                          className='prose prose-sm pb-6'
+                          className='prose prose-sm pb-6 text-gray-200'
                         >
                           <ul role='list'>
                             {detail.items.map(item => (
